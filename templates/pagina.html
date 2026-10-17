@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senhas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="card">
+        <h1>Gerador de Senhas</h1>
+        <form method="post">
+            <label for="tamanho">Tamanho da senha:</label><br><br>
+            <input type="number" id="tamanho" name="tamanho" min="4", max="120", value="12" required>
+            <br>
+            <button type="submit">Gerar senha</button>
+        </form>
+
+        {% if senha %}
+            <div class="resultado">{{ senha }}</div>
+        {% endif %}
+
+        {% if erro %}
+            <p>{{ erro }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
